@@ -29,6 +29,7 @@ for (let i = 0; i < questions.length; i++){
   
   let candidateResponse= input.question(questions[i]);
   candidateAnswers.push(candidateResponse);
+ 
 }
 
 }
@@ -37,12 +38,11 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 candidateAnswers.join("")
- if (correctAnswer === candidateAnswer){
-  console.log(`Correct! You entered ${candidateAnswer}`);
- } else{
-  console.log(`Incorrect. You entered ${candidateAnswer} but the correct anwer is ${correctAnswer}.`);
- }
-
+for (let i = 0; i < questions.length; i++){
+  console.log(`Question ${questions[i]}\n
+  Your Answer: ${candidateAnswers[i]}
+  Correct Answer: ${correctAnswers}\n`)
+}
 let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
   
 //converting for case insensativity
@@ -77,7 +77,7 @@ candidateAnswers = secondTmpStr.split(",");
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Hello" + candidateName + "! It is nice to meet you.");
+   console.log(`Hello ${candidateName}! Its nice to meet you.`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
